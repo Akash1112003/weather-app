@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Weather App</title>
+</head>
+<body class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white min-h-screen p-8">
+    <div class="max-w-4xl mx-auto opacity-100 animate-fadeIn">
+        <div class="flex gap-4 mb-8 p-4 bg-white/10 rounded-lg shadow-md">
+            <input type="text" id="city-input" placeholder="Search for any city" class="flex-1 p-3 border border-white/10 bg-white/10 text-white rounded-lg focus:outline-none focus:border-white/30">
+            <button onclick="getWeather()" class="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold uppercase tracking-wide transition-transform hover:-translate-y-1 hover:shadow-lg">Search</button>
+        </div>
+        <div id="error" class="hidden bg-gradient-to-r from-red-500 to-yellow-400 p-4 rounded-lg text-white text-center font-medium"></div>
+        <div id="loading" class="hidden text-center p-4 text-lg text-white/80 animate-pulse">Fetching weather data...</div>
+        
+        <div id="weather-info" class="hidden bg-white/10 rounded-lg p-6 shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg">
+            <div class="flex justify-between border-b border-white/50 pb-4 mb-6">
+                <div>
+                    <h1 id="city-name" class="text-3xl font-semibold">City Name</h1>
+                    <p id="date" class="text-white text-lg">Date</p>
+                    <p id="weather-description" class="text-white text-lg capitalize">Weather description</p>
+                </div>
+                <div>
+                    <span id="temperature" class="text-6xl font-bold">0°C</span>
+                    <img id="weather-icon" src="" alt="Weather Icon" class="w-16 h-16 sm:w-24 sm:h-24 drop-shadow-md">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white/20 p-4 rounded-lg text-center border border-white/10 hover:bg-white/20 transition">
+                    <h3 class="text-white uppercase text-sm">Feels Like</h3>
+                    <p id="feels-like" class="text-xl font-semibold">0°</p>
+                </div>
+                <div class="bg-white/20 p-4 rounded-lg text-center border border-white/10 hover:bg-white/20 transition">
+                    <h3 class="text-white uppercase text-sm">Humidity</h3>
+                    <p id="humidity" class="text-xl font-semibold">0%</p>
+                </div>
+                <div class="bg-white/20 p-4 rounded-lg text-center border border-white/10 hover:bg-white/20 transition">
+                    <h3 class="text-white uppercase text-sm">Wind Speed</h3>
+                    <p id="wind-speed" class="text-xl font-semibold">0 km/h</p>
+                </div>
+                <div class="bg-white/20 p-4 rounded-lg text-center border border-white/10 hover:bg-white/20 transition">
+                    <h3 class="text-white uppercase text-sm">UV Index</h3>
+                    <p id="uv-index" class="text-xl font-semibold">0</p>
+                </div>
+            </div>
+            <h2 class="text-2xl font-semibold mb-4">Forecast</h2>
+            <div id="forecast" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
+        </div>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>
